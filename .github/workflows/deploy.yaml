@@ -22,11 +22,10 @@ jobs:
 
       - name: Run tests
         run: go test ./...
-
-  compile:
-    runs-on: ubuntu-latest
+  
+ compile:
     needs: test
-    if: success()
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -41,3 +40,4 @@ jobs:
 
       - name: Compile binary
         run: go build -o myapp
+
